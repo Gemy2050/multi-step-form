@@ -1,0 +1,368 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+}
+body {
+  font-family: System-ui;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eef5ff;
+}
+.container {
+  padding: 20px;
+  background-color: #FFF;
+  width: 850px;
+  min-height: 575px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+.container .sidebar {
+  background-image: url('./assets/images/bg-sidebar-desktop.svg');
+  background-repeat: no-repeat;
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  flex-basis: 30%;
+}
+.sidebar .phase {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  gap: 20px;
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+.sidebar .num {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+.active .num {
+  background-color: #b8dcfc;
+  color: black;
+  border-color: #b8dcfc;
+}
+.phase .content span {
+  color: hsl(229, 24%, 87%);
+  font-size: 14px;
+}
+form  {
+  padding: 30px 0;
+  padding-right: 50px;
+  flex-basis: 60%;
+}
+form .tab {
+  margin-bottom: 70px;
+  height: 370px;
+}
+form .tab:not(.active) {
+  display: none;
+}
+form h1 {
+  color: #0b2f62;
+}
+form p {
+  color: #a1a1a9;
+  margin-bottom: 35px;
+}
+form .tab .info .box {
+  margin-bottom: 20px;
+}
+form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #0b2f62;
+}
+form .info label {
+  display: flex;
+  justify-content: space-between;
+}
+form label span {
+  display: none;
+}
+form .error label span {
+  display: inline;
+  color: #c82f37;
+}
+form input {
+  width: 100%;
+  outline: none;
+  border: 1px solid #DDD;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 17px;
+  color: #0b2f62;
+}
+form input:focus {
+  border-color: #554f95;
+}
+form .box.error input {
+  border-color: #9e5a63;
+}
+form input[type="number"]::-webkit-inner-spin-button {
+  appearance: none;
+}
+/* Step 2 */
+form input[type="radio"] {
+  display: none;
+}
+form .plans {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+form .plans .box {
+  width: 100%;
+  border: 1px solid #DDD;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+}
+form .plans .box label {
+  cursor: pointer;
+  text-align: center;
+}
+form .plans img {
+  margin-bottom: 50px;
+}
+form .plans p {
+  margin: 0;
+}
+form input[type="radio"]:checked + .box {
+  border: 1px solid #554f95;
+}
+.tab .option {
+  background-color: #EEE;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  margin-top: 30px;
+}
+.tab .option span {
+  color: gray;
+}
+
+/* Toggle Switch*/
+.toggle-checkbox {
+  display: none;
+}
+.toggle-switch {
+  position: relative;
+  width: 78px;
+  height: 30px;
+  background-color: #554f95;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: .3s all;
+}
+.toggle-switch::before {
+  content: '';
+  position: absolute;
+  background-color: white;
+  left: 4px;
+  top: 3px;
+  width: 24px ;
+  height: 24px;
+  border-radius: 50%;
+  transition: .3s all ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.toggle-checkbox:checked + .toggle-switch::before {
+  left: 50px;
+}
+.toggle-checkbox:checked-within span  {
+  color: red;
+}
+/* Step 3 */
+.addons input {
+  display: none;
+}
+.addons label {
+  margin-bottom: 20px;
+  border: 1px solid #DDD;
+  border-radius: 8px;
+  background-color: #EEE;
+  position: relative;
+}
+.addons label .box {
+  cursor: pointer;
+  padding: 20px 20px 20px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.addons  label::before,
+.addons label::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 40px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.addons label::before {
+  border: 1px solid #DDD;
+}
+.addons label::after {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  content: '\f00c';
+  background-color: #174a8b;
+  border: 1px solid #174a8b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  display: none;
+}
+.addons input[type="checkbox"]:checked + label {
+  border-color: #174a8b;
+}
+.addons input[type="checkbox"]:checked + label::after {
+  display: flex;
+}
+.addons .box p {
+  margin: 0;
+}
+
+/* Step 4 */
+.finish .box {
+  background-color: #eef5ff;
+  padding: 20px;
+  border-radius: 8px;
+}
+.finish .box .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+}
+.finish .box .content:nth-child(2) {
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+  border-top: 1px solid #ddd;
+  padding-top: 20px ;
+}
+.finish .box .content:nth-child(2) div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.finish .content a {
+  text-decoration: none;
+}
+.finish .content a:hover {
+  text-decoration: underline;
+}
+.finish .content .price {
+  color: #0b2f62;
+  font-weight: bold;
+}
+.finish .content .name {
+  color: #a1a1a9;
+}
+.finish .total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  padding: 10px 15px;
+}
+.finish .total .price {
+  color: #174a8b ;
+  font-weight: bold;
+  font-size: 18px;
+}
+/* Form Buttons */
+/* form .buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} */
+form .buttons button {
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: bold;
+}
+form .buttons .back {
+  background-color: transparent;
+  color: #0b2f62;
+  float: left;
+}
+form .buttons .next {
+  background-color: #174a8b;
+  padding: 12px 20px;
+  color: white;
+  float: right;
+}
+
+/* Thank Tab */
+.thanks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  display: none;
+}
+.thanks .content {
+  text-align: center;
+}
+
+
+@media (max-width: 700px) {
+  .container {
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+    padding: 10px;
+  }
+  .container .sidebar {
+    display: flex;
+    justify-content: space-between;
+    background-size: cover;
+    border-radius: 1px;
+    margin-bottom: 10px;
+    background-image: url(/assets/images/bg-sidebar-mobile.svg);
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    z-index: -1;
+  }
+  .sidebar .content {
+    display: none;
+  }
+  .container form {
+    width: 100%;
+    padding: 15px;
+    padding: 10px;
+  }
+  form .plans {
+    flex-direction: column;
+  }
+  form .plans img {
+    margin: 0 ;
+  }
+}
